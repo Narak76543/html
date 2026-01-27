@@ -15,7 +15,7 @@ async function submitNews() {
     initData: tg?.initData || null
   };
 
-  const API_URL = "https://YOUR-BACKEND-URL/news/submit";
+  const API_URL = "https://grateful-usable-hedy.ngrok-free.dev/news/submit";
 
   try {
     const response = await fetch(API_URL, {
