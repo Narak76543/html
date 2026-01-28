@@ -6,80 +6,16 @@ if (window.Telegram?.WebApp) {
   tg.expand();
 }
 
-// Grab the chat_id from the browser URL
+// ទាញយកព័ត៌មានពី URL (ឧទាហរណ៍៖ ?chat_id=123&v_id=PV02)
 const urlParams = new URLSearchParams(window.location.search);
 const chatId = urlParams.get('chat_id');
+const vId = urlParams.get('v_id'); // <--- ត្រូវបន្ថែមត្រង់នេះ
 
-// When sending the POST request to /news/submit:
-const payload = {
-    chat_id: chatId, // This must be included!
-    village_name: villageValue,
-    commune_name: communeValue,
-    title: titleValue,
-    content: contentValue
-};
-
-// async function submitNews() {
-//   const data = {
-//     village_name: document.getElementById('village').value,
-//     commune_name: document.getElementById('commune').value,
-//     title: document.getElementById('title').value,
-//     content: document.getElementById('content').value,
-//     initData: tg?.initData || null
-//   };
-
-//   const API_URL = "https://grateful-usable-hedy.ngrok-free.dev/news/submit";
-
-//   try {
-//     const response = await fetch(API_URL, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(data)
-//     });
-
-//     if (response.ok) {
-//       tg?.showConfirm("✅ News sent successfully!", () => tg.close());
-//     } else {
-//       tg?.showAlert("❌ Submission failed.");
-//     }
-//   } catch (error) {
-//     tg?.showAlert("🚫 Cannot connect to server.");
-//   }
-// }
-
-// async function submitNews() {
-//   const data = {
-//     chat_id: chatId, // <--- ADD THIS LINE HERE
-//     village_name: document.getElementById('village').value,
-//     commune_name: document.getElementById('commune').value,
-//     title: document.getElementById('title').value,
-//     content: document.getElementById('content').value,
-//     initData: tg?.initData || null
-//   };
-
-//   // The rest of your code is correct
-//   const API_URL = "https://grateful-usable-hedy.ngrok-free.dev/news/submit";
-
-//   try {
-//     const response = await fetch(API_URL, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(data)
-//     });
-
-//     if (response.ok) {
-//       tg?.showConfirm("✅ របាយការណ៍ត្រូវបានបញ្ជូន!", () => tg.close());
-//     } else {
-//       tg?.showAlert("❌ ការបញ្ជូនបានបរាជ័យ។");
-//     }
-//   } catch (error) {
-//     tg?.showAlert("🚫 មិនអាចភ្ជាប់ទៅកាន់ម៉ាស៊ីនមេបានទេ។");
-//   }
-// }
 async function submitNews() {
+  // បង្កើតទិន្នន័យសម្រាប់ផ្ញើទៅ Backend
   const data = {
-    // THIS LINE IS CRITICAL: it sends your personal ID to the backend
-    chat_id: chatId, 
+    chat_id: chatId,      // ID របស់អ្នករាយការណ៍
+    v_id: vId,            // ID របស់ភូមិ (សំខាន់ខ្លាំងសម្រាប់ Lookup ក្នុង DB)
     village_name: document.getElementById('village').value,
     commune_name: document.getElementById('commune').value,
     title: document.getElementById('title').value,
