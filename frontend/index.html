@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,15 +38,64 @@
         </form>
     </div>
 
-    <!-- Dialog Modal -->
-    <div id="dialogOverlay" class="dialog-overlay" onclick="closeDialog()">
+    Dialog Modal -->
+    <!-- <div id="dialogOverlay" class="dialog-overlay" onclick="closeDialog()">
         <div class="dialog-box" onclick="event.stopPropagation()">
             <div class="dialog-icon" id="dialogIcon">
                 <!-- Icon will be inserted here -->
-            </div>
+            <!-- </div>
             <h3 class="dialog-title" id="dialogTitle">Title</h3>
             <p class="dialog-message" id="dialogMessage">Message</p>
             <button class="dialog-btn" onclick="closeDialog()">OK</button>
+        <!-- </div> -->
+    <!-- </div> --> -->
+<!-- 
+    <script src="script.js"></script>
+</body> -->
+<!-- </html> --> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inform News Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>រាយការណ៍ព័ត៌មាន</h1>
+        <p class="subtitle">សូមបំពេញព័ត៌មានខាងក្រោមឱ្យបានច្បាស់លាស់</p>
+        
+        <div class="divider"></div>
+
+        <div id="villageBadge" class="village-badge" style="display: none;">
+            📍 ភូមិរាយការណ៍៖ <span id="displayVillage">...</span>
+        </div>
+
+        <form id="newsForm">
+            <h2 class="section-title">ចំណងជើងព័ត៌មាន</h2>
+            <div class="form-group">
+                <input type="text" id="title" name="title" placeholder="បញ្ចូលចំណងជើងព័ត៌មាននៅទីនេះ...">
+            </div>
+
+            <h2 class="section-title" style="margin-top: 30px;">ខ្លឹមសារព័ត៌មាន</h2>
+            <div class="form-group">
+                <textarea id="content" name="content" placeholder="រៀបរាប់ខ្លឹមសារព័ត៌មានដែលបានកើតឡើង..."></textarea>
+            </div>
+
+            <button type="button" class="submit-btn" id="sendBtn" onclick="submitNews()">បញ្ជូនរបាយការណ៍</button>
+        </form>
+    </div>
+
+    <div id="dialogOverlay" class="dialog-overlay">
+        <div class="dialog-box">
+            <div class="dialog-icon" id="dialogIcon"></div>
+            <h3 class="dialog-title" id="dialogTitle">Title</h3>
+            <p class="dialog-message" id="dialogMessage">Message</p>
+            <button class="dialog-btn" onclick="closeDialog()">យល់ព្រម</button>
         </div>
     </div>
 

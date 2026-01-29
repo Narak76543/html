@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -119,7 +119,7 @@ textarea {
 }
 
 /* Dialog Modal Styles */
-.dialog-overlay {
+/* .dialog-overlay {
   display: none;
   position: fixed;
   top: 0;
@@ -243,5 +243,91 @@ textarea {
 
   .dialog-box {
     padding: 25px;
+  }
+} */ 
+
+/* បន្ថែម Style សម្រាប់ព័ត៌មានភូមិស្វ័យប្រវត្តិ */
+.village-badge {
+  background: #f0f7ff;
+  border-left: 5px solid #007bff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.village-badge span {
+  font-weight: bold;
+  color: #0056b3;
+  font-size: 16px;
+}
+
+/* កែប្រែ Input និង Textarea ឱ្យមានលក្ខណៈទន់ភ្លន់ជាងមុន */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px; /* បង្កើនភាពមូលនៃជ្រុង */
+  background-color: #fcfcfc;
+  transition: all 0.2s ease;
+  color: #333;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #00b35c;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(0, 179, 92, 0.1); /* បន្ថែមពន្លឺពេល Focus */
+}
+
+/* ប្តូរពណ៌ Button ឱ្យកាន់តែទាក់ទាញ */
+.submit-btn {
+  width: 100%; /* ឱ្យប៊ូតុងវែងពេញទទឹងក្នុង Mobile */
+  max-width: 300px;
+  display: block;
+  margin: 30px auto 0;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* កែប្រែ Dialog ឱ្យមើលទៅស្អាតដូច App ទំនើប */
+.dialog-box {
+  border: none;
+  padding: 35px 25px;
+  border-radius: 20px;
+}
+
+.dialog-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+}
+
+/* Media Query សម្រាប់ទូរស័ព្ទដៃ */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .container {
+    padding: 25px 15px;
+    box-shadow: none; /* លុបស្រមោលចេញសម្រាប់ Mobile */
+    border-radius: 0;
+  }
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .subtitle {
+    text-align: center;
   }
 }
