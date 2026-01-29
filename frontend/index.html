@@ -1,22 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Village News Input</title>
-    <link href="https://fonts.googleapis.com/css2?familygit =Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Inform News Form</title>
     <link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
 </head>
 <body>
-    <div id="app">
-        <h2>📢 Submit News</h2>
-        <input type="text" id="village" placeholder="Your Village Name">
-        <input type="text" id="commune" placeholder="Target Commune">
-        <input type="text" id="title" placeholder="News Title">
-        <textarea id="content" placeholder="Enter details here..."></textarea>
+    <div class="container">
+        <h1>Inform News Form</h1>
+        <p class="subtitle">Fill out the form carefully</p>
         
-        <button id="sendBtn" onclick="submitNews()">Send to Commune Bot</button>
+        <div class="divider"></div>
+
+        <form id="newsForm">
+            <h2 class="section-title">Village Name</h2>
+            <div class="form-group">
+                <input type="text" id="village" name="village" placeholder="Enter village name">
+            </div>
+
+            <h2 class="section-title">Target Commune</h2>
+            <div class="form-group">
+                <input type="text" id="commune" name="commune" placeholder="Enter commune name">
+            </div>
+
+            <h2 class="section-title">News Title</h2>
+            <div class="form-group">
+                <input type="text" id="title" name="title" placeholder="Enter news title">
+            </div>
+
+            <h2 class="section-title" style="margin-top: 40px;">Content</h2>
+            <div class="form-group">
+                <textarea id="content" name="content" placeholder="Write your news content here..."></textarea>
+            </div>
+
+            <button type="button" class="submit-btn" id="sendBtn" onclick="submitNews()">Submit</button>
+        </form>
     </div>
+
+    <!-- Dialog Modal -->
+    <div id="dialogOverlay" class="dialog-overlay" onclick="closeDialog()">
+        <div class="dialog-box" onclick="event.stopPropagation()">
+            <div class="dialog-icon" id="dialogIcon">
+                <!-- Icon will be inserted here -->
+            </div>
+            <h3 class="dialog-title" id="dialogTitle">Title</h3>
+            <p class="dialog-message" id="dialogMessage">Message</p>
+            <button class="dialog-btn" onclick="closeDialog()">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
