@@ -203,6 +203,7 @@ const senderName = tg?.initDataUnsafe?.user?.first_name || "អ្នកប្�
 
 // Submit news function
 async function submitNews() {
+  
   if (!validateForm()) return;
 
   const sendBtn = document.getElementById('sendBtn');

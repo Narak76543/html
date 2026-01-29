@@ -1,333 +1,48 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
-  background-color: #f5f5f5;
-  padding: 20px;
+    background: black;
 }
 
-.container {
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: white;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.news-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    border-left: 8px solid teal;
+    box-shadow:
+        0 0 5px rgba(0, 128, 128, 0.35),
+        inset 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
-h1 {
-  font-size: 32px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 8px;
+.form-control {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.subtitle {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 40px;
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: teal;
+    box-shadow: 0 0 10px rgba(11, 11, 11, 0.6);
+}
+
+.form-floating label {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .divider {
-  height: 1px;
-  background-color: #e0e0e0;
-  margin-bottom: 30px;
+    height: 1px;
+    background: linear-gradient(to right, teal, transparent);
+    margin: 16px 0;
 }
 
-.section-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  font-size: 13px;
-  color: #666;
-  margin-top: 8px;
-}
-
-input[type="text"],
-textarea {
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 14px;
-  border: 1px solid #d0d0d0;
-  border-radius: 4px;
-  background-color: #fafafa;
-  transition:
-    border-color 0.2s,
-    background-color 0.2s;
-}
-
-input[type="text"]:focus,
-textarea:focus {
-  outline: none;
-  border-color: #999;
-  background-color: white;
-}
-
-textarea {
-  min-height: 150px;
-  resize: vertical;
-  font-family: inherit;
-}
-
-.submit-btn {
-  display: block;
-  margin: 40px auto 0;
-  padding: 14px 60px;
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-  background-color: #00b35c;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.submit-btn:hover {
-  background-color: #009e50;
-}
-
-.submit-btn:active {
-  background-color: #008a45;
-}
-
-.submit-btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Dialog Modal Styles */
-/* .dialog-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  animation: fadeIn 0.3s ease;
-}
-
-.dialog-overlay.show {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.dialog-box {
-  background-color: white;
-  border-radius: 12px;
-  padding: 30px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  animation: slideUp 0.3s ease;
-}
-
-.dialog-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-}
-
-.dialog-icon.success {
-  background-color: #d4edda;
-  color: #00b35c;
-}
-
-.dialog-icon.error {
-  background-color: #f8d7da;
-  color: #dc3545;
-}
-
-.dialog-icon.warning {
-  background-color: #fff3cd;
-  color: #ffc107;
-}
-
-.dialog-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.dialog-message {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 25px;
-  line-height: 1.5;
-}
-
-.dialog-btn {
-  background-color: #00b35c;
-  color: white;
-  border: none;
-  padding: 12px 40px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.dialog-btn:hover {
-  background-color: #009e50;
-}
-
-.dialog-btn:active {
-  background-color: #008a45;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 600px) {
-  .container {
-    padding: 30px 20px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 28px;
-  }
-
-  .dialog-box {
-    padding: 25px;
-  }
-} */ 
-
-/* បន្ថែម Style សម្រាប់ព័ត៌មានភូមិស្វ័យប្រវត្តិ */
 .village-badge {
-  background: #f0f7ff;
-  border-left: 5px solid #007bff;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 25px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.village-badge span {
-  font-weight: bold;
-  color: #0056b3;
-  font-size: 16px;
-}
-
-/* កែប្រែ Input និង Textarea ឱ្យមានលក្ខណៈទន់ភ្លន់ជាងមុន */
-input[type="text"],
-textarea {
-  width: 100%;
-  padding: 14px 18px;
-  font-size: 15px;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px; /* បង្កើនភាពមូលនៃជ្រុង */
-  background-color: #fcfcfc;
-  transition: all 0.2s ease;
-  color: #333;
-}
-
-input[type="text"]:focus,
-textarea:focus {
-  outline: none;
-  border-color: #00b35c;
-  background-color: #fff;
-  box-shadow: 0 0 0 4px rgba(0, 179, 92, 0.1); /* បន្ថែមពន្លឺពេល Focus */
-}
-
-/* ប្តូរពណ៌ Button ឱ្យកាន់តែទាក់ទាញ */
-.submit-btn {
-  width: 100%; /* ឱ្យប៊ូតុងវែងពេញទទឹងក្នុង Mobile */
-  max-width: 300px;
-  display: block;
-  margin: 30px auto 0;
-  padding: 16px;
-  font-size: 16px;
-  border-radius: 12px;
-  letter-spacing: 0.5px;
-}
-
-/* កែប្រែ Dialog ឱ្យមើលទៅស្អាតដូច App ទំនើប */
-.dialog-box {
-  border: none;
-  padding: 35px 25px;
-  border-radius: 20px;
-}
-
-.dialog-btn {
-  width: 100%;
-  padding: 14px;
-  border-radius: 10px;
-}
-
-/* Media Query សម្រាប់ទូរស័ព្ទដៃ */
-@media (max-width: 480px) {
-  body {
-    padding: 10px;
-  }
-  
-  .container {
-    padding: 25px 15px;
-    box-shadow: none; /* លុបស្រមោលចេញសម្រាប់ Mobile */
-    border-radius: 0;
-  }
-
-  h1 {
-    font-size: 24px;
-    text-align: center;
-  }
-
-  .subtitle {
-    text-align: center;
-  }
+    background: rgba(0, 128, 128, 0.2);
+    border-left: 4px solid teal;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #bff;
+    margin-bottom: 15px;
 }
