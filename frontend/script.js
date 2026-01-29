@@ -203,10 +203,36 @@ const senderName = tg?.initDataUnsafe?.user?.first_name || "អ្នកប្�
 
 // Submit news function
 async function submitNews() {
-  
+const sendBtn = document.getElementById('sendBtn');
+    const btnText = document.getElementById('btnText');
+    const btnSpinner = document.getElementById('btnSpinner');
+    
+
+    const title = document.getElementById('title').value;
+    const content = document.getElementById('content').value;
+
+    if (!title || !content) {
+        alert('Please fill in all fields');
+        return;
+    }
+
+    btnText.textContent = 'Submitting...';
+    btnSpinner.style.display = 'inline-block';
+    sendBtn.disabled = true;
+    setTimeout(() => {
+        console.log('Submitting:', { title, content });
+        
+        btnText.textContent = 'Submit';
+        btnSpinner.style.display = 'none';
+        sendBtn.disabled = false;
+        
+        document.getElementById('newsForm').reset();
+        
+    }, 2000);
+
   if (!validateForm()) return;
 
-  const sendBtn = document.getElementById('sendBtn');
+  
   sendBtn.disabled = true;
   sendBtn.textContent = 'កំពុងបញ្ជូន...';
 
