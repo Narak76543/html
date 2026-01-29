@@ -199,6 +199,8 @@ function validateForm() {
   return true;
 }
 
+const senderName = tg?.initDataUnsafe?.user?.first_name || "អ្នកប្រើប្រាស់";
+
 // Submit news function
 async function submitNews() {
   if (!validateForm()) return;
@@ -211,6 +213,7 @@ async function submitNews() {
   const data = {
     chat_id: chatId,
     v_id: vId, // ផ្ញើ ID ទៅដើម្បីឱ្យ Backend ទាញទិន្នន័យពី DB
+    sender_name: senderName,
     title: document.getElementById('title').value,
     content: document.getElementById('content').value,
     initData: tg?.initData || null
