@@ -90,7 +90,7 @@ const sendBtn = document.getElementById('sendBtn');
 
   
   sendBtn.disabled = true;
-  sendBtn.textContent = 'កំពុងបញ្ជូន...';
+  sendBtn.textContent = 'Sending....';
 
   const data = {
     chat_id    : chatId,
